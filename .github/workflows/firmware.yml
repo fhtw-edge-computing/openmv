@@ -46,6 +46,10 @@ jobs:
         path: ~/cache/gcc
         key: 'gcc-arm-none-eabi-10-2020-q4-major'
 
+    - name: '⏳ Download BLE Stack'
+      if: matrix.target == 'NANO33'
+      run: src/micropython/ports/nrf/drivers/bluetooth/download_ble_stack.sh s140_nrf52_6_1_1
+
     - name: '🛠 Install toolchain '
       if: steps.cache.outputs.cache-hit != 'true'
       run: source tools/ci.sh && ci_install_arm_gcc
