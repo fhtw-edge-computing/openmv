@@ -49,5 +49,5 @@ ci_package_firmware_release() {
 }
 
 ci_package_firmware_development() {
-    (cd firmware && for i in *; do zip -r -j "firmware_${i%/}.zip" "$i"; done)
+    (cd firmware && for i in *; do zip -r "firmware_${i%/}.zip" "$i"; done)
 }
